@@ -20,7 +20,7 @@ class Wgraph {
             return;
         }
         source.addKrai(destination, weight);
-        destination.addKrai(source, weight); // Assuming an undirected graph
+        destination.addKrai(source, weight);
     }
 
     public Set<Vershina> getVershinas() {

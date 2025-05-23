@@ -29,6 +29,6 @@ class BreakfastSrch extends Srch {
                 }
             }
         }
-        return new ArrayList<>(); // No path found
+        return new ArrayList<>();
     }
 }
