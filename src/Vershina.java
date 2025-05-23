@@ -1,39 +1,26 @@
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
 
-public class Vershina {
-    private V data;
-    private Map<Vershina<V>, Double> AdjacentVertices;
+class Vershina {
+    String name;
+    Map<Vershina, Double> neighbors;
+    boolean visited;
+    double distance;
+    Vershina previous;
 
-    public Vershina(V data) {
-        this.data = data;
-        this.AdjacentVertices = new HashMap<>();
+    public Vershina(String name) {
+        this.name = name;
+        this.neighbors = new HashMap<>();
+        this.visited = false;
+        this.distance = Double.POSITIVE_INFINITY;
+        this.previous = null;
     }
 
-    public void addAdjacentVertex(Vertex<V> destination, double weight){
-        this.AdjacentVertices.put(destination, weight);
-    }
-
-    public V getData(){
-        return data;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Vershina<?> other = (Vershina<?>) o;
-        return Objects.equals(data, other.data);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(data);
+    public void addKrai(Vershina neighbor, double weight) {
+        neighbors.put(neighbor, weight);
     }
 
     @Override
     public String toString() {
-        return "Vertex{" + data + '}';
+        return name;
     }
-
 }
